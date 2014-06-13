@@ -1,0 +1,84 @@
+    
+
+    <ion-view title="title" left-buttons="leftButtons">
+        <ion-content has-header="true" scroll="true">
+	        <div class="row responsive-md" ng-init="showLoading()">
+	        	<!-- List Gua -->
+	        	<div class="col col-33">
+					<div class="list">
+						<p class="item item-icon-left" ng-repeat="perprovince in perprovinces" ng-click="loadGua(perprovince.id)">{{perprovince.name}} <span class="badge" ng-repeat="coor in perprovince.coordinates"><u>+</u>{{jarak(coor.latitude, coor.longitude)}}km</span></p>
+					</div>
+	        	</div>
+	        	
+	        	<div class="col col-67" id="viewGua">
+	        		<p ng-hide="select == ''">{{select}}</p>
+	        		<div ng-hide="guaviews == []" ng-repeat="gua in guaviews">
+						<div class="row responsive-md">
+							<div class="col col-100">
+								<!-- Default Picture / Static Map-->
+<!-- 								<li><img class="full-image" src="img/nopict.png" ng-show="gua.images == 0" /></li> -->
+								<img ng-src="http://maps.googleapis.com/maps/api/staticmap?&key=AIzaSyBvkEaVRacUN8MucCU6B4YQGAT18KCmXnY&sensor=false&center={{coor.latitude}},{{coor.longitude}}&zoom=11&size=1024x1024&markers={{coor.latitude}},{{coor.longitude}}" ng-repeat="coor in gua.coordinates" ng-show="gua.images == 0" style="width:auto !important;height:410px;text-align:center;">
+
+								<!-- Slide picture -->
+						        <ul rn-carousel rn-carousel-control class="image">
+						            <li ng-repeat="image in gua.images">
+						                <img src="{{image.file}}">
+						            </li>
+						        </ul>
+							</div>
+						</div>
+						<div class="row responsive-md">
+							<div class="col col-50">
+								<!-- Difficulties Level -->
+<!-- 								<p>Tingkat kesulitan: {{gua.difficulty.name}} <span ng-show="gua.difficulty.name == 0"> - </span></br>
+										{{gua.type.name}} <span ng-show="gua.type.name == 0"> - </span></p> -->
+								<p>{{gua.type.name}} <span ng-show="gua.type.name == 0"> - </span> | Tingkat Kesulitan: {{gua.difficulty.name}} <span ng-show="gua.difficulty.name == 0"> - </span></p>
+							</div>
+							<div class="col col-50">
+								<!-- Position -->
+								<p class="right" ng-repeat="coor in gua.coordinates"><i class="ion-ios7-location-outline"></i><br>S {{coor.longitude}} E {{coor.latitude}} </p>
+
+								<p class="right" ng-show="gua.coordinates == 0"><i class="ion-ios7-location-outline"></i><br> No Coordinates</p>
+
+								<p class="right">{{gua.kelurahan.name}} <span ng-show="gua.kelurahan == 0"> - </span></br>
+								{{gua.kecamatan.name}}<span ng-show="gua.kecamatan == 0"> - </span></br>
+								{{gua.kabupaten.name}}<span ng-show="gua.kabupaten == 0"> - </span></p>	
+							</div>
+						</div>
+						<div class="row responsive-md">
+							<div class="col col-50">
+								<!-- Contact -->
+								<h5>Contact</h5>
+								<div ng-repeat="contact in gua.contacts">
+									<p> Nama: </p>
+									<p> No. Telp: </p>
+								</div>
+								<p ng-show="gua.contacts == 0">No Contact yet</p>
+							</div>
+							<div class="col col-50">
+								<!-- Gear -->
+								<h5 class="right">
+									Peralatan Susur
+								</h5>
+								<ul class="list right" ng-repeat = "gear in gua.gears" dir="rtl">
+									<li>{{gear.name}}</li>
+								</ul>
+								<p class="right" ng-show="gua.gears == 0">No gear</p>
+							</div>
+						</div>
+
+						<div class="row responsive-md">
+							<div class="col col-100">
+								<!-- Cave Description -->
+								<hr/>
+								<p ng-bind-html="gua.description | nl2br"></p>
+								<p ng-show="gua.description == []">No description yet...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+      	</ion-content>
+  	</ion-view>
+ 
