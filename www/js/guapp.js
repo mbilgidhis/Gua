@@ -498,7 +498,7 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 	};
 	var id = $stateParams.id;
 
-	$scope.perprovinces = [];
+	// $scope.perprovinces = [];
 
 	var lat = $window.lat, lng = $window.lng;
 	var currentLocation = new google.maps.LatLng(lat, lng);
@@ -512,9 +512,25 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 		method:'POST'
 	}).success(function(data){
 		$scope.perprovinces = data.data;
-		$timeout(function(){
-			$scope.loadingIndicator.hide();
-		}, 100);
+		var idGua = $scope.perprovinces[0].id;
+		//console.log(idGua);
+		$http({
+			url:"http://gua.antonwibisono.com/api/public/cave/?id="+idGua,
+			apiToken: "434refce",
+			dataType: "json",
+			method:'POST'			
+		}).success(function(gua){
+			$scope.guaviews = gua.data;
+			$scope.title = $scope.guaviews[0].name;
+			$scope.active = $scope.guaviews[0].id;
+
+			$timeout(function(){
+				$scope.loadingIndicator.hide();
+			},100);
+		});
+		// $timeout(function(){
+		// 	$scope.loadingIndicator.hide();
+		// }, 100);
 	}).error(function(){
 		console.log("gagal");
 	});
@@ -524,8 +540,8 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 		return (google.maps.geometry.spherical.computeDistanceBetween(currentLocation, areaLocation) / 1000).toFixed(1);
 	};
 
-	$scope.select ="Silakan pilih gua yang hendak dilihat";
-	$scope.guaviews = [];
+	// $scope.select ="Silakan pilih gua yang hendak dilihat";
+	// $scope.guaviews = [];
 
 
 	$scope.loadGua = function(idgua){
@@ -545,6 +561,8 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 		}).success(function(data){
 			$scope.guaviews = data.data;
 			$scope.title = $scope.guaviews[0].name;
+			$scope.active = $scope.guaviews[0].id;
+
 			$timeout(function(){
 				$scope.loadingIndicator.hide();
 			}, 100);
@@ -552,6 +570,11 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 			console.log("gagal");
 		});
 	};
+
+	$scope.isActive = function (category) {
+		//Check if category of a given <li> is equal to the current category
+		return $scope.active === category;
+	}
 
 });
 

@@ -6,15 +6,17 @@
         	<!-- Picture Section -->
 			<div class="row responsive-md">
 				<div class="col col-100">
-					<!-- Default Picture / Static Map-->
-					<img ng-src="http://maps.googleapis.com/maps/api/staticmap?&key=AIzaSyBvkEaVRacUN8MucCU6B4YQGAT18KCmXnY&sensor=false&center={{coor.latitude}},{{coor.longitude}}&zoom=11&size=1024x1024&markers={{coor.latitude}},{{coor.longitude}}" ng-repeat="coor in gua.coordinates" ng-show="gua.images == 0" style="width:auto !important;height:410px;text-align:center;">
+					<div id="pic-slide">
+						<!-- Default Picture / Static Map-->
+						<img ng-src="http://maps.googleapis.com/maps/api/staticmap?&key=AIzaSyBvkEaVRacUN8MucCU6B4YQGAT18KCmXnY&sensor=false&center={{coor.latitude}},{{coor.longitude}}&zoom=11&size=1024x1024&markers={{coor.latitude}},{{coor.longitude}}" ng-repeat="coor in gua.coordinates" ng-show="gua.images == 0" style="width:auto !important;height:410px;text-align:center;">
 
-					<!-- Slide picture -->
-			        <ul rn-carousel rn-carousel-control class="image">
-			            <li ng-repeat="image in gua.images">
-			                <img src="{{image.file}}">
-			            </li>
-			        </ul>					
+						<!-- Slide picture -->
+				        <ul rn-carousel rn-carousel-control class="image">
+				            <li ng-repeat="image in gua.images">
+				                <img src="{{image.file}}">
+				            </li>
+				        </ul>		
+			        </div>			
 				</div>
 			</div>
 
