@@ -322,26 +322,32 @@ GuaApp.controller('GpsCtrl', function($scope, $window, $http){
 		var mark = data.data;
 		for(var i = 0, length = mark.length; i < length; i++){
 			if(mark[i].difficulty == "Grade 1"){
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-1.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-1.png", showWindow: false});
 			}
 			else if(mark[i].difficulty == "Grade 2"){
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-2.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-2.png", showWindow: false});
 			}
 			else if(mark[i].difficulty == "Grade 3"){
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-3.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-3.png", showWindow: false});
 			}
 			else if(mark[i].difficulty == "Grade 4"){
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-4.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-4.png", showWindow: false});
 			}
 			else if(mark[i].difficulty == "Grade 5"){
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-5.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/dif-5.png", showWindow: false});
 			}
 			else{
-				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/default.png"});
+				$scope.markers.push({id:mark[i].id, name:mark[i].name, latitude:mark[i].latitude, longitude:mark[i].longitude, icon:"img/marker/default.png", showWindow: false});
 			}
 		}
 	});	
 
+	$scope.onMarkerClicked = function(marker) {
+		_.each($scope.markers, function(mker) {
+			mker.showWindow = false;
+		});
+		marker.showWindow = true;
+	};
 
 	//untuk map
 	$scope.map = {

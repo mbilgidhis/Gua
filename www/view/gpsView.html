@@ -2,8 +2,8 @@
   <ion-content has-header="true" scroll="false">
     <google-map center="map.center" zoom="map.zoom" draggable="true">       
         <!-- Marker gua -->
-        <marker ng-repeat="m in markers" coords="m" icon="m.icon">
-            <window>
+        <marker ng-repeat="m in markers" coords="m" icon="m.icon" click="onMarkerClicked(m)">
+            <window show="m.showWindow">
                 <div style="min-width:60px">
                     <p><a href="#/map/home/{{m.id}}" style="text-decoration: none;">{{m.name}}</a></p>
                 </div>
