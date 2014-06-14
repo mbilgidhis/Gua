@@ -2,8 +2,9 @@
 	<ion-content has-header="true">
 		<div class="row responsive-md" ng-init="showLoading()">
 			<div class="col col-100">
-				<img src="{{biotas.image}}" alt="{{alats.name}}" />
-
+				<div id="picture"></div>
+					<img src="{{biotas.image}}" alt="{{alats.name}}" />
+				</div>
 				<div id="keterangan">
 					<h4>{{biotas.name}}</h4>
 					<p>{{biotas.description}}</p>
