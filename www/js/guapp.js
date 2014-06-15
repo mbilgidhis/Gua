@@ -358,13 +358,6 @@ GuaApp.controller('GpsCtrl', function($scope, $window, $http){
     	zoom: 10
 	};
 
-	//untuk show current location
-	// $scope.center ={
-	// 	icon: 'img/dot.png',
-	// 	latitude: "-7.801389",
-	// 	longitude: "110.364444"
-	// };
-
 	$scope.center = [];
 
 	//untuk circle
@@ -528,9 +521,7 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 				$scope.loadingIndicator.hide();
 			},100);
 		});
-		// $timeout(function(){
-		// 	$scope.loadingIndicator.hide();
-		// }, 100);
+
 	}).error(function(){
 		console.log("gagal");
 	});
@@ -539,10 +530,6 @@ GuaApp.controller('GuaCtrl', function($scope, $stateParams, $http, $window, $ion
 		var areaLocation = new google.maps.LatLng(a, b);
 		return (google.maps.geometry.spherical.computeDistanceBetween(currentLocation, areaLocation) / 1000).toFixed(1);
 	};
-
-	// $scope.select ="Silakan pilih gua yang hendak dilihat";
-	// $scope.guaviews = [];
-
 
 	$scope.loadGua = function(idgua){
 		$scope.loadingIndicator = $ionicLoading.show({

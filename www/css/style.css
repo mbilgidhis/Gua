@@ -20,3 +20,57 @@ ul.right{
 	list-style-type: disc;
 }
 
+/* tidak pakai ini sudah ganti warna sendiri
+li.active{
+	background-color: blue !important;
+	color:red;
+}*/
+
+#pic-slider{
+	text-align:center;
+	height:410px;
+}
+#pic-slider{
+	height:410px;
+	margin-bottom:24px;
+	width:auto;
+}
+.menu-content{
+	padding:0;
+}
+div[ng-repeat="gua in guas"] ion-view{
+	background-color:#41C5D7;
+	color:#fff;
+	padding:0;
+}
+div[ng-repeat="gua in guas"] .row.responsive-md{
+	padding:0 5px;
+}
+div[ng-repeat="gua in guas"] .col.col-100{
+	padding:0 !important;
+}
+hr{
+	border:1px solid #fff;
+	border-bottom:none;
+	margin-bottom:20px;
+}
+#guaType{
+	font-size:18px !important;
+}
+#guaCoordinate{
+	font-size:16px;
+}
+#guaGears,#guaContacts{
+	margin-top:20px;
+}
+#guaGears h5,#guaContacts h5{
+	color:#fff;
+	font-size:16px;
+}
+#guaGears li,#guaContacts li,#guaContacts p{
+	font-size:14px !important;
+}
+#guaAddress{
+	color:#D5F2F6;
+	font-size:18px !important;
+}
