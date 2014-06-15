@@ -27,7 +27,7 @@ GuaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 		.state('menu.biota', {url: '/info/biota', views: {'menuContent': {templateUrl: 'view/biotaView.html', controller: 'BiotaCtrl'} }  })
 		.state('menu.biotaView', {url:'/info/biota/:id', views:{'menuContent':{templateUrl: 'view/fullBiotaView.html', controller:'FullBiotaCtrl'} } })
 
-		.state('menu.ornamen', {url: '/info/ornamen', views: {'menuContent': {templateUrl: 'view/dummyView.html', controller: 'DummyCtrl'} }  })
+		//.state('menu.ornamen', {url: '/info/ornamen', views: {'menuContent': {templateUrl: 'view/dummyView.html', controller: 'DummyCtrl'} }  })
 
 
 		.state('menu.perarea', {url: '/area/:id', views: {'menuContent': {templateUrl: 'view/GuaView.html', controller: 'GuaCtrl'} }  })
