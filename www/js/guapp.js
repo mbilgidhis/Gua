@@ -342,6 +342,12 @@ GuaApp.controller('GpsCtrl', function($scope, $window, $http){
 		}
 	});	
 
+	$scope.markerOption = {
+		options : {
+          boxClass: 'custom-info-window'
+        }
+	};
+
 	$scope.onMarkerClicked = function(marker) {
 		_.each($scope.markers, function(mker) {
 			mker.showWindow = false;
