@@ -127,15 +127,14 @@ hr{
 
 /*tambahan untuk infobox */
 .custom-info-window{
-    background: rgba(0,0,0,0.5);
+    background: rgba(74,207,221,0.5);
     color: white;
-    padding: 1px;
-    /*border: 1px solid white;*/
+    font-size:14px;
+    padding: 5px 5px 0px 10px;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
     border-radius: 5px;
-    width: 200px;
-    margin-top: 15px;
-    margin-left: -130px;
+    min-width: 150px;
+    margin-top: 10px;
 }
 
 .custom-info-window a{
@@ -143,7 +142,7 @@ hr{
     text-decoration: underline;
 }
 
-.custom-info-window:after
+/*.custom-info-window:after
 {
     content: '';
     position: absolute;
@@ -153,6 +152,19 @@ hr{
     display: block;
     width: 0;
     z-index: 1;
-    top: -15px;
-    left: 118px;
-}
+    top: 15px;
+    left: 35px;
+}*/
+
+/*.custom-info-window{
+    background: rgba(74,207,221,0.5);
+    color: white;
+	font-size:14px;
+    padding: 5px 5px 0px 10px;
+    border: 1px solid white;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 15px;
+    margin-left: -130px;
+}*/

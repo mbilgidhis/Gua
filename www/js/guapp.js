@@ -344,7 +344,9 @@ GuaApp.controller('GpsCtrl', function($scope, $window, $http){
 
 	$scope.markerOption = {
 		options : {
-          boxClass: 'custom-info-window'
+          boxClass: 'custom-info-window',
+          pixelOffset: new google.maps.Size(-50,-20),
+          alignBottom: true
         }
 	};
 
@@ -369,13 +371,13 @@ GuaApp.controller('GpsCtrl', function($scope, $window, $http){
 	//untuk circle
 	$scope.stroke = {
 	    "opacity":0.4,
-	    "color": "blue",
+	    "color": "#4ACFDD",
 	    "weight":2
 	}
 	//untuk fill circle
 	$scope.fill = {
 		"opacity": 0.2,
-		"color": "blue"
+		"color": "#4ACFDD"
 	}
 
 	var onSuccess = function(position) {
