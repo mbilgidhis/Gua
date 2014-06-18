@@ -40,10 +40,6 @@ GuaApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 }]);
 
 
-GuaApp.factory('myCache', function($cacheFactory){
-	return $cacheFactory('myData');
-});
-
 /**
  * HEADER - handle menu toggle
  */
